@@ -1,0 +1,224 @@
+/* Manual Reset */
+body, h1, ul, li {
+  margin: 0;
+  padding: 0;
+}
+h1, .pick-your-poison, li {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
+}
+
+:root {
+  --orange: rgb(233, 143, 0);
+  --white: rgb(221, 221, 221);
+  --shadow: 1px 1px 12px rgba(0, 0, 0, 0.502);
+}
+body {
+  color: rgb(33, 33, 33);
+  font-family: 'Allerta Stencil', sans-serif;
+}
+.background {
+  position: relative;
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 1fr 3fr;
+  min-height: 100vh;
+  background-image: radial-gradient( rgba(70, 76, 154, 0.376), rgba(51, 4, 59, 0.565)), url('../assets/images/blurred-city.jpg');
+  background-size: cover;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+.background:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, 
+                    rgba(0, 0, 0, 0.721), 
+                    rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 20rem;
+}
+.fog {
+  /* background-image: url('../assets/images/9vZL.gif'); */
+  background-size: cover;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .15;
+  pointer-events: none;
+}
+
+h1 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--orange);
+  z-index: 4;
+  animation: fade-in 2s ease-in-out;
+  transition: transform .5s ease-in-out;
+}
+h1:hover {
+  transform: rotateZ(2deg);
+}
+h1 span {
+  display: block;font-family: 'Allerta Stencil', sans-serif;
+  font-size: 3.5rem;
+  color: var(--white);
+}
+.pick-your-poison {
+  background: rgba(0, 0, 0, 0.502);
+  margin-bottom: auto;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  animation: bubble .5s ease-in-out,
+  up-and-away .7s ease-in-out forwards 2.5s;
+}
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .12em;
+  animation: 
+    typing 1.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+
+/* Menu */
+.menu {
+  z-index: 4;
+  margin-bottom: auto;
+  display: none;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: rgba(0, 0, 0, 0.502);
+  width: min(900px, 75%);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: fade-in 1s ease-in-out;
+}
+.menu:hover {
+  background-color: rgba(0, 0, 0, 0.584);
+}
+nav {
+  position: relative;
+  grid-column: span 2;
+  width: 100%;
+}
+nav::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.275);
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: auto;
+}
+li {
+  padding: 1.5em;
+  list-style: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.curr-tab {
+  background-color: rgba(151, 151, 151, 0.584);
+  color: white;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
+}
+.menu-inventory {
+  flex-direction: column;
+  font-size: .8em;
+  width: 100%;
+  color: #bfbfbf;
+  grid-column: span 2;
+  padding: 2rem;
+  text-align: center;
+}
+.menu-inventory,
+.menu-item {
+  display: flex;
+  align-items: center;
+}
+.menu-item {
+  width: 100%;
+  justify-content: space-around;
+}
+#menu-image {
+  position: relative;
+  width: 200px;
+}
+
+/* Animations */
+@keyframes bubble {
+  0% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+@keyframes up-and-away {
+  100% {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(153, 153, 153, 0.684); }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  h1 span {
+    font-size: 2.5rem;
+  }
+  .background {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 430px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h1 span {
+    font-size: 2rem;
+  }
+}
