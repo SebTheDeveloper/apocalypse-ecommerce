@@ -3,7 +3,9 @@ body, h1, ul, li, p {
   margin: 0;
   padding: 0;
 }
-h1, .pick-your-poison, li {
+h1, .pick-your-poison, 
+li, .description,
+#menu-image {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
@@ -168,15 +170,20 @@ li {
   align-items: center;
 }
 .menu-item {
+  cursor: pointer;
   position: relative;
   width: 100%;
   justify-content: space-around;
   box-shadow: 0 0 5px white;
   padding: 2rem;
 }
+.menu-item:hover {
+  box-shadow: 0 0 9px white;
+  transform: scale(1.01);
+}
 .menu-item::before {
   content: '';
-  box-shadow: inset 0 0 175px rgba(30, 54, 119, 0.627);
+  box-shadow: inset 0 0 175px rgba(21, 40, 92, 0.627);
   z-index: -1;
   filter: blur(40px);
   position: absolute;
@@ -185,9 +192,17 @@ li {
   right: 0;
   left: 0;
 }
-.menu-item:hover {
-  box-shadow: 0 0 9px white;
-  transform: scale(1.01);
+.selected-item {
+  box-shadow: 0 0 10px var(--green);
+  border-radius: 10px;
+}
+.selected-item button {
+  color: var(--gray);
+  background-color: rgb(12, 12, 12);
+  border: 1px solid var(--gray);
+}
+.selected-item:hover {
+  box-shadow: 0 0 15px var(--green);
 }
 #menu-image {
   position: relative;

@@ -20,9 +20,21 @@ function loadMenu(tab = 'Food') {
 
   if (currTab === 'Food') {
     menu.innerHTML = food();
+    selectCartItems(menu);
   } else {
     menu.innerHTML = gear();
+    selectCartItems(menu);
   }
+}
+
+function selectCartItems(menu) {
+  const items = menu.querySelectorAll('.menu-item');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('selected-item');
+    });
+  });
 }
 
 export default function navTabs() {
