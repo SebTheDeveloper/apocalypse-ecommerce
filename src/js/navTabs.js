@@ -16,13 +16,5 @@ export default function navTabs() {
   tabs.forEach(tab => {
     tab.addEventListener('click', select);
   });
-
-  // For tab accessibility
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      select();
-    }
-  });
-
   loadMenu();
 }
