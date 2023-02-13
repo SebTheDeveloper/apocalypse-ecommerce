@@ -185,7 +185,8 @@ li {
 }
 .menu-item::before {
   content: '';
-  box-shadow: inset 0 0 175px rgba(21, 40, 92, 0.627);
+  box-shadow: inset 0 0 175px rgb(21, 40, 92);
+  opacity: .65;
   z-index: -1;
   filter: blur(40px);
   position: absolute;
@@ -206,6 +207,9 @@ li {
 .selected-item:hover {
   box-shadow: 0 0 15px var(--green);
 }
+.selected-item::before {
+  opacity: 1;
+}
 #menu-image {
   position: relative;
   width: 200px;
@@ -214,14 +218,14 @@ li {
   flex-direction: column;
   justify-content: center;
   gap: 1.6rem;
+  font-size: 1.25rem;
 }
 .description > :nth-child(1) {
-  font-size: 1.8rem;
+  font-size: 1.44em;
   color: var(--gray);
 }
 .description > :nth-child(2) {
   color: var(--green);
-  font-size: 1.25rem;
 }
 button {
   cursor: pointer;
@@ -272,22 +276,32 @@ button:hover {
 
 /* Media Queries */
 @media screen and (max-width: 900px) {
-  h1 {
+  h1 span:first-of-type {
     font-size: 3rem;
     margin-bottom: 3rem;
   }
-  h1 span {
+  h1 span:last-of-type {
     font-size: 2.5rem;
   }
   .background {
     font-size: 1.3rem;
   }
 }
-@media screen and (max-width: 430px) {
-  h1 {
-    font-size: 2.5rem;
+@media screen and (max-width: 500px) {
+  h1 span:first-of-type {
+    font-size: 2.6rem;
   }
-  h1 span {
-    font-size: 2rem;
+  h1 span:last-of-type {
+    font-size: 2.1rem;
+  }
+  .menu-item {
+    padding: 2rem 1.6rem;
+    width: 85%;
+  }
+  #menu-image {
+    width: 150px;
+  }
+  .description {
+    font-size: 1rem;
   }
 }

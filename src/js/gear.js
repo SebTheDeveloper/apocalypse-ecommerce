@@ -58,7 +58,7 @@ export default function gear() {
     <img src="assets/images/banshee.png" id="menu-image">
   </div>
   <div class="menu-item">
-    <img src="assets/images/robo-dog.webp" id="menu-image">
+    <img src="assets/images/robo-dog.png" id="menu-image">
     <div class="description">
       <p>Robo Dog Companion</p>
       <p>$1500</p>
