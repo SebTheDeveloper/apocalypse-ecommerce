@@ -21,6 +21,7 @@ li, .description,
 body {
   color: rgb(33, 33, 33);
   font-family: 'Allerta Stencil', sans-serif;
+  overflow-y: hidden;
 }
 main {
   padding: 4rem 0;
@@ -67,14 +68,13 @@ main {
   pointer-events: none;
 } */
 h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Nosifer', cursive;
   margin-bottom: 2rem;
   text-align: center;
   font-size: 4.5rem;
   color: var(--white);
   font-weight: 700;
   z-index: 4;
-  animation: fade-in 2s ease-in-out;
   transition: transform .5s ease-in-out;
 }
 h1:hover {
@@ -83,10 +83,14 @@ h1:hover {
 }
 h1 span:first-of-type {
   color: var(--orange);
+  opacity: 0;
+  animation: fade-in 2s ease-in-out forwards;
 }
 h1 span:last-of-type {
   display: block;font-family: 'Allerta Stencil', sans-serif;
   font-size: 3.5rem;
+  opacity: 0;
+  animation: fade-in 2s ease-in-out .5s forwards;
 }
 .pick-your-poison {
   font-size: 1.2rem;
@@ -95,9 +99,9 @@ h1 span:last-of-type {
   margin-bottom: auto;
   border-radius: 10px;
   padding: 1rem 2rem;
-  box-shadow: var(--shadow);
-  animation: bubble .5s ease-in-out,
-  up-and-away .7s ease-in-out forwards 2.5s;
+  box-shadow: var(--shadow);transform: scale(0);
+  animation: bubble .5s ease-in-out 1.75s forwards,
+  up-and-away .7s ease-in-out forwards 3.8s;
 }
 .typewriter {
   overflow: hidden;
@@ -106,7 +110,7 @@ h1 span:last-of-type {
   margin: 0 auto;
   letter-spacing: .12em;
   animation: 
-    typing 1.5s steps(40, end),
+    typing 1.5s steps(40, end) 1.75s,
     blink-caret .75s step-end infinite;
 }
 
@@ -115,7 +119,8 @@ h1 span:last-of-type {
 .menu {
   z-index: 4;
   margin-bottom: auto;
-  display: none;
+  display: grid;
+  pointer-events: none;
   align-items: center;
   justify-items: center;
   grid-template-columns: repeat(2, 1fr);
@@ -123,8 +128,13 @@ h1 span:last-of-type {
   width: min(900px, 100%);
   border-radius: 10px;
   overflow: hidden;
+  opacity: 0;
   box-shadow: var(--shadow);
-  animation: fade-in 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+.menu-visible {
+  opacity: 1;
+  pointer-events: all;
 }
 nav {
   position: relative;
@@ -245,11 +255,11 @@ button:hover {
 
 /* Animations */
 @keyframes bubble {
-  0% {
-    transform: scale(0);
-  }
   75% {
     transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 @keyframes up-and-away {
@@ -268,14 +278,17 @@ button:hover {
   50% { border-color: rgba(153, 153, 153, 0.684); }
 }
 @keyframes fade-in {
-  0% {
-    opacity: 0;
+  100% {
+    opacity: 1;
   }
 }
 
 
 /* Media Queries */
 @media screen and (max-width: 900px) {
+  main {
+    padding-top: 2rem;
+  }
   h1 span:first-of-type {
     font-size: 3rem;
     margin-bottom: 3rem;

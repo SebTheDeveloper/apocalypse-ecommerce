@@ -2,10 +2,12 @@ export default function initialLoad() {
 
   const pickYourPoison = document.querySelector('.pick-your-poison');
   const menu = document.querySelector('.menu');
+  const body = document.querySelector('body');
 
   setTimeout(() => {
     pickYourPoison.style.display = 'none';
-    menu.style.display = 'grid';
-  }, 3200);
+    menu.classList.add('menu-visible')
+    body.style.overflowY = 'visible';
+  }, 4500);
 
 }

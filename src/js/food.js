@@ -41,6 +41,40 @@ export default function food() {
     </div>
     <img src="assets/images/whiskey-bottle.png" id="menu-image">
   </div>
+
+  <div class="menu-item">
+    <img src="assets/images/red-apple.png" id="menu-image">
+    <div class="description">
+      <p>Red Apple</p>
+      <p>$2</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+  <div class="menu-item">
+    <div class="description">
+      <p>Old Chinese Food</p>
+      <p>$10</p>
+      <button>Add to Cart</button>
+    </div>
+    <img src="assets/images/chinese-food.png" id="menu-image">
+  </div>
+  <div class="menu-item">
+    <img src="assets/images/coconut.png" id="menu-image">
+    <div class="description">
+      <p>Coconut</p>
+      <p>$7</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+  <div class="menu-item">
+    <div class="description">
+      <p>Bowl of Rice</p>
+      <p>$4</p>
+      <button>Add to Cart</button>
+    </div>
+    <img src="assets/images/bowl-of-rice.png" id="menu-image">
+  </div>
+
   <div class="menu-item">
     <img src="assets/images/canned-mystery-food.png" id="menu-image">
     <div class="description">
