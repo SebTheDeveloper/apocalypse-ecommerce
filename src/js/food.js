@@ -2,57 +2,101 @@ const foodItems = [
   {
     name: 'Box of Canned Goods',
     price: '$40',
-    src: 'assets/images/box-of-canned-goods.png'
+    src: 'assets/images/box-of-canned-goods.png',
+    health: '3',
+    longevity: '5',
+    energy: '2',
+    strength:'3'
   },
   {
     name: 'Tuna Sandwich',
     price: '$7',
-    src: 'assets/images/tuna-sandwich.png'
+    src: 'assets/images/tuna-sandwich.png',
+    health: '3',
+    longevity: '1',
+    energy: '4',
+    strength: '3'
   },
   {
     name: 'Water Jug (5 Gal)',
     price: '$20',
-    src: 'assets/images/water-jug-5-gallon.png'
+    src: 'assets/images/water-jug-5-gallon.png',
+    health: '5',
+    longevity: '5',
+    energy: '4',
+    strength: '4'
   },
   {
     name: 'Coffee Beans',
     price: '$12',
-    src: 'assets/images/coffee-beans.png'
+    src: 'assets/images/coffee-beans.png',
+    health: '3',
+    longevity: '4',
+    energy: '5',
+    strength: '2'
   },
   {
     name: 'Bottle of Whiskey',
     price: '$27',
-    src: 'assets/images/whiskey-bottle.png'
+    src: 'assets/images/whiskey-bottle.png',
+    health: '1',
+    longevity: '5',
+    energy: '2',
+    strength: '3'
   },
   {
     name: 'Red Apple',
-    price: '$2',
-    src: 'assets/images/red-apple.png'
+    price: '$3',
+    src: 'assets/images/red-apple.png',
+    health: '5',
+    longevity: '2',
+    energy: '4',
+    strength: '3'
   },
   {
     name: 'Old Chinese Food',
     price: '$9',
-    src: 'assets/images/chinese-food.png'
+    src: 'assets/images/chinese-food.png',
+    health: '1',
+    longevity: '2',
+    energy: '3',
+    strength: '4'
   },
   {
     name: 'Coconut',
     price: '$7',
-    src: 'assets/images/coconut.png'
+    src: 'assets/images/coconut.png',
+    health: '4',
+    longevity: '3',
+    energy: '5',
+    strength: '2'
   },
   {
     name: 'Bowl of Rice',
     price: '$4',
-    src: 'assets/images/bowl-of-rice.png'
+    src: 'assets/images/bowl-of-rice.png',
+    health: '3',
+    longevity: '5',
+    energy: '4',
+    strength: '2'
   },
   {
     name: 'Canned Mystery Food',
     price: '$5',
-    src: 'assets/images/canned-mystery-food.png'
+    src: 'assets/images/canned-mystery-food.png',
+    health: '2',
+    longevity: '5',
+    energy: '4',
+    strength: '3'
   },
   {
     name: 'Dog Food Bites',
-    price: '$3',
-    src: 'assets/images/dog-food-bites.png'
+    price: '$2',
+    src: 'assets/images/dog-food-bites.png',
+    health: '1',
+    longevity: '4',
+    energy: '1',
+    strength: '2'
   }
 ];
 
@@ -63,28 +107,90 @@ function createMarkup() {
     const name = foodItems[i].name;
     const price = foodItems[i].price;
     const src = foodItems[i].src;
+    const health = foodItems[i].health;
+    const longevity = foodItems[i].longevity;
+    const energy = foodItems[i].energy;
+    const strength = foodItems[i].strength;
 
     if (i % 2 === 0) {
       htmlBuffer += `
         <div class="menu-item">
-        <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
-        <div class="description">
-          <p>${name}</p>
-          <p>${price}</p>
-          <button>Add to Cart</button>
+          <div class="item">
+            <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
+            <div class="description">
+              <p>${name}</p>
+              <p>${price}</p>
+              <button>Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="click-for-stats">VIEW ITEM STATS</div>
+          
+          <div class="stats">
+            <p id="item-stats">Item Stats</p>
+            <div class="chart-item">
+              <p>Health Boost:</p>
+              <div class="chart-bar" id="level-${health}"></div>
+              <p>${health}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Longevity:</p>
+              <div class="chart-bar" id="level-${longevity}"></div>
+              <p>${longevity}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Energy Level:</p>
+              <div class="chart-bar" id="level-${energy}"></div>
+              <p>${energy}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Strength:</p>
+              <div class="chart-bar" id="level-${strength}"></div>
+              <p>${strength}/5</p>
+            </div>
+          </div>
+
         </div>
-      </div>
       `;
     } else {
       htmlBuffer += `
         <div class="menu-item">
-          <div class="description">
-            <p>${name}</p>
-            <p>${price}</p>
-            <button>Add to Cart</button>
+          <div class="item">
+            <div class="description">
+              <p>${name}</p>
+              <p>${price}</p>
+              <button>Add to Cart</button>
+            </div>
+            <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
           </div>
-          <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
-        </div> 
+
+          <div class="click-for-stats">View Item Stats</div>
+
+          <div class="stats">
+            <p id="item-stats">Item Stats</p>
+            <div class="chart-item">
+              <p>Health Boost:</p>
+              <div class="chart-bar" id="level-${health}"></div>
+              <p>${health}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Longevity:</p>
+              <div class="chart-bar" id="level-${longevity}"></div>
+              <p>${longevity}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Energy Level:</p>
+              <div class="chart-bar" id="level-${energy}"></div>
+              <p>${energy}/5</p>
+            </div>
+            <div class="chart-item">
+              <p>Strength:</p>
+              <div class="chart-bar" id="level-${strength}"></div>
+              <p>${strength}/5</p>
+            </div>
+          </div>
+
+        </div>
       `;
     }
   }

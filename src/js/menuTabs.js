@@ -30,13 +30,27 @@ function selectCartItems(menu) {
 
   items.forEach(item => {
     const itemName = item.querySelector('p').textContent;
+    const btn = item.querySelector('button');
+    const clickForStats = item.querySelector('.click-for-stats');
+
     if (sessionStorage.getItem(itemName)) {
       item.classList.add('selected-item');
+      btn.textContent = 'Remove from Cart'
     }
     
-    item.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       item.classList.toggle('selected-item');
+      if (btn.textContent === 'Add to Cart') {
+        btn.textContent = 'Remove from Cart';
+      } else {
+        btn.textContent = 'Add to Cart';
+      }
       manageSessionStorage(item);
+    });
+
+    clickForStats.addEventListener('click', () => {
+      item.querySelector('.stats').style.display = 'flex';
+      item.querySelector('.click-for-stats').style.display = 'none';
     });
   });
 }

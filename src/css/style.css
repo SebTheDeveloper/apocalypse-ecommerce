@@ -44,7 +44,7 @@ main {
 .background:before {
   content: "";
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   pointer-events: none;
@@ -90,7 +90,8 @@ h1 span:first-of-type {
   animation: fade-in 2s ease-in-out forwards;
 }
 h1 span:last-of-type {
-  display: block;font-family: 'Allerta Stencil', sans-serif;
+  display: block;
+  font-family: 'Allerta Stencil', sans-serif;
   font-size: 3.5rem;
   opacity: 0;
   animation: fade-in 2s ease-in-out .5s forwards;
@@ -179,11 +180,15 @@ li {
 }
 .menu-inventory,
 .menu-item,
+.item,
 .description {
   display: flex;
   align-items: center;
 }
 .menu-item {
+  --dashed-border-color: #6f6f6f;
+  flex-direction: column;
+  gap: 2.5rem;
   cursor: pointer;
   position: relative;
   width: 100%;
@@ -192,6 +197,7 @@ li {
   padding: 2rem;
 }
 .menu-item:hover {
+  --dashed-border-color: white;
   box-shadow: 0 0 9px white;
   transform: scale(1.01);
 }
@@ -206,6 +212,16 @@ li {
   bottom: 0;
   right: 0;
   left: 0;
+}
+.menu-item-invalid {
+  box-shadow: 0 0 22px rgba(255, 0, 0, .7);
+}
+.item {
+  justify-content: space-around;
+  width: 100%;
+  padding-top: .5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px dashed var(--dashed-border-color);
 }
 .selected-item {
   box-shadow: 0 0 10px var(--green);
@@ -255,8 +271,113 @@ button:hover {
   border: 1px solid var(--orange);
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
 }
+button:active {
+  box-shadow: 0 0 4px var(--orange);
+}
+
+
+.click-for-stats {
+  font-family: 'Nosifer', cursive;
+  font-size: .9rem;
+  color: var(--orange);
+  text-decoration: underline;
+}
+.click-for-stats:hover {
+  color: var(--green);
+}
+.stats {
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  font-size: 1rem;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 2rem;
+  animation: fade-in .5s ease-in-out forwards;
+}
+.stats:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+#item-stats {
+  font-family: 'Nosifer', cursive;
+  font-size: 1.4em;
+  color: var(--orange);
+  text-decoration: underline;
+}
+.chart-item:first-of-type {
+  padding-top: 1rem;
+}
+.chart-item {
+  display: grid;
+  grid-template-columns: 30% 60% 10%;
+  margin-left: -1rem;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  gap: .5rem;
+}
+.chart-item p:last-of-type {
+  font-size: .9em;
+}
+.chart-bar {
+  --bar-color: #bcbcbc;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 1.15em;
+  width: 100%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  background-color: var(--bar-color);
+}
+.chart-bar::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--green);
+}
+.chart-bar::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--bar-color);
+  animation: bar-fill 2s ease-in-out forwards;
+}
+#level-1::before {
+  width: 20%;
+  opacity: .6;
+}
+#level-2::before {
+  width: 40%;
+  opacity: .7;
+}
+#level-3::before {
+  width: 60%;
+  opacity: .8;
+}
+#level-4::before {
+  width: 80%;
+  opacity: .9;
+}
+#level-5::before {
+  width: 100%;
+  opacity: 1;
+}
 
 /* Animations */
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes bubble {
   75% {
     transform: scale(1.1);
@@ -280,9 +401,10 @@ button:hover {
   from, to { border-color: transparent }
   50% { border-color: rgba(153, 153, 153, 0.684); }
 }
-@keyframes fade-in {
+/* Item Stats Animations */
+@keyframes bar-fill {
   100% {
-    opacity: 1;
+    transform: translate(100%);
   }
 }
 
@@ -319,5 +441,8 @@ button:hover {
   }
   .description {
     font-size: 1rem;
+  }
+  .stats {
+    font-size: .85rem;
   }
 }
