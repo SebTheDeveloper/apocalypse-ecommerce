@@ -82,7 +82,11 @@ h1:hover {
   color: black;
 }
 h1 span:first-of-type {
-  color: var(--orange);
+  background-image: linear-gradient(var(--orange) 40%, #c02000);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
   opacity: 0;
   animation: fade-in 2s ease-in-out forwards;
 }
@@ -99,7 +103,8 @@ h1 span:last-of-type {
   margin-bottom: auto;
   border-radius: 10px;
   padding: 1rem 2rem;
-  box-shadow: var(--shadow);transform: scale(0);
+  box-shadow: var(--shadow);
+  transform: scale(0);
   animation: bubble .5s ease-in-out 1.75s forwards,
   up-and-away .7s ease-in-out forwards 3.8s;
 }
