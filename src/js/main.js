@@ -1,5 +1,5 @@
 import initialLoad from "./initialLoad.js";
-import navTabs from "./navTabs.js";
+import menuTabs from "./menuTabs.js";
 
 initialLoad();
-navTabs();
+menuTabs();

@@ -20,7 +20,7 @@ const gearItems = [
     src: 'assets/images/baseball-bat.png'
   },
   {
-    name: '.357 Magnum Reveolver',
+    name: '.357 Magnum Revolver',
     price: '$650',
     src: 'assets/images/revolver.png'
   },

@@ -3,7 +3,7 @@ import gear from "./gear.js";
 
 const tabs = document.querySelectorAll('nav li');
 
-function select() {
+function selectTab() {
   const selected = document.querySelector('.curr-tab');
   if (this !== selected) {
     tabs.forEach(tab => {
@@ -50,9 +50,9 @@ function manageSessionStorage(item) {
   }
 }
 
-export default function navTabs() {
+export default function menuTabs() {
   tabs.forEach(tab => {
-    tab.addEventListener('click', select);
+    tab.addEventListener('click', selectTab);
   });
   loadMenu();
 }

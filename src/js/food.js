@@ -1,7 +1,7 @@
 const foodItems = [
   {
     name: 'Box of Canned Goods',
-    price: '$50',
+    price: '$40',
     src: 'assets/images/box-of-canned-goods.png'
   },
   {
@@ -88,7 +88,7 @@ function createMarkup() {
       `;
     }
   }
-  
+
   return htmlBuffer;
 }
 
