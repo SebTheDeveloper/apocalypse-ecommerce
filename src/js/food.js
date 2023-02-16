@@ -129,7 +129,7 @@ function createMarkup() {
           <div class="stats">
             <p id="item-stats">Item Stats</p>
             <div class="chart-item">
-              <p>Health Boost:</p>
+              <p>Health:</p>
               <div class="chart-bar" id="level-${health}"></div>
               <p>${health}/5</p>
             </div>
@@ -139,7 +139,7 @@ function createMarkup() {
               <p>${longevity}/5</p>
             </div>
             <div class="chart-item">
-              <p>Energy Level:</p>
+              <p>Energy:</p>
               <div class="chart-bar" id="level-${energy}"></div>
               <p>${energy}/5</p>
             </div>
@@ -149,7 +149,6 @@ function createMarkup() {
               <p>${strength}/5</p>
             </div>
           </div>
-
         </div>
       `;
     } else {
@@ -169,7 +168,7 @@ function createMarkup() {
           <div class="stats">
             <p id="item-stats">Item Stats</p>
             <div class="chart-item">
-              <p>Health Boost:</p>
+              <p>Health:</p>
               <div class="chart-bar" id="level-${health}"></div>
               <p>${health}/5</p>
             </div>
@@ -179,7 +178,7 @@ function createMarkup() {
               <p>${longevity}/5</p>
             </div>
             <div class="chart-item">
-              <p>Energy Level:</p>
+              <p>Energy:</p>
               <div class="chart-bar" id="level-${energy}"></div>
               <p>${energy}/5</p>
             </div>
@@ -189,12 +188,16 @@ function createMarkup() {
               <p>${strength}/5</p>
             </div>
           </div>
-
         </div>
       `;
     }
   }
 
+  htmlBuffer += `
+  <div class="back-to-top">
+  <a href="#">Back to Top</a>
+  </div>`;
+  
   return htmlBuffer;
 }
 

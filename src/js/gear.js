@@ -6,7 +6,7 @@ const gearItems = [
     damage: '2',
     protection: '3',
     effectOnVitality: '1',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Ray Gun',
@@ -15,7 +15,7 @@ const gearItems = [
     damage: '5',
     protection: '5',
     effectOnVitality: '2',
-    longevityOfUse: '3'
+    longevity: '3'
   },
   {
     name: 'Machete',
@@ -24,7 +24,7 @@ const gearItems = [
     damage: '2',
     protection: '2',
     effectOnVitality: '1',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Baseball Bat',
@@ -33,7 +33,7 @@ const gearItems = [
     damage: '1',
     protection: '2',
     effectOnVitality: '1',
-    longevityOfUse: '2'
+    longevity: '2'
   },
   {
     name: '.357 Magnum Revolver',
@@ -42,7 +42,7 @@ const gearItems = [
     damage: '3',
     protection: '3',
     effectOnVitality: '1',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Molotov Cocktail',
@@ -51,7 +51,7 @@ const gearItems = [
     damage: '4',
     protection: '3',
     effectOnVitality: '1',
-    longevityOfUse: '1'
+    longevity: '1'
   },
   {
     name: 'Gas Mask',
@@ -60,7 +60,7 @@ const gearItems = [
     damage: '1',
     protection: '4',
     effectOnVitality: '5',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Hazmat Suit',
@@ -69,7 +69,7 @@ const gearItems = [
     damage: '1',
     protection: '4',
     effectOnVitality: '5',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Banshee',
@@ -77,8 +77,8 @@ const gearItems = [
     src: 'assets/images/banshee.png',
     damage: '5',
     protection: '5',
-    effectOnVitality: '3',
-    longevityOfUse: '4'
+    effectOnVitality: '5',
+    longevity: '4'
   },
   {
     name: 'Minigun',
@@ -87,7 +87,7 @@ const gearItems = [
     damage: '5',
     protection: '5',
     effectOnVitality: '1',
-    longevityOfUse: '2'
+    longevity: '2'
   },
   {
     name: 'Flamethrower',
@@ -96,7 +96,7 @@ const gearItems = [
     damage: '4',
     protection: '3',
     effectOnVitality: '1',
-    longevityOfUse: '3'
+    longevity: '3'
   },
   {
     name: 'Robo Dog Companion',
@@ -105,7 +105,7 @@ const gearItems = [
     damage: '3',
     protection: '5',
     effectOnVitality: '5',
-    longevityOfUse: '4'
+    longevity: '4'
   },
   {
     name: 'Fidget Spinner',
@@ -114,7 +114,7 @@ const gearItems = [
     damage: '1',
     protection: '1',
     effectOnVitality: '5',
-    longevityOfUse: '5'
+    longevity: '5'
   }
 ];
 
@@ -128,7 +128,7 @@ function createMarkup() {
     const damage = gearItems[i].damage;
     const protection = gearItems[i].protection;
     const effectOnVitality = gearItems[i].effectOnVitality;
-    const longevityOfUse = gearItems[i].longevityOfUse;
+    const longevity = gearItems[i].longevity;
 
     if (i % 2 === 0) {
       htmlBuffer += `
@@ -162,12 +162,11 @@ function createMarkup() {
               <p>${effectOnVitality}/5</p>
             </div>
             <div class="chart-item">
-              <p>Longevity of Use:</p>
-              <div class="chart-bar" id="level-${longevityOfUse}"></div>
-              <p>${longevityOfUse}/5</p>
+              <p>Longevity:</p>
+              <div class="chart-bar" id="level-${longevity}"></div>
+              <p>${longevity}/5</p>
             </div>
           </div>
-
         </div>
       `;
     } else {
@@ -202,16 +201,20 @@ function createMarkup() {
               <p>${effectOnVitality}/5</p>
             </div>
             <div class="chart-item">
-              <p>Longevity of Use:</p>
-              <div class="chart-bar" id="level-${longevityOfUse}"></div>
-              <p>${longevityOfUse}/5</p>
+              <p>Longevity:</p>
+              <div class="chart-bar" id="level-${longevity}"></div>
+              <p>${longevity}/5</p>
             </div>
           </div>
-
         </div> 
       `;
     }
   }
+
+  htmlBuffer += `
+  <div class="back-to-top">
+  <a href="#">Back to Top</a>
+  </div>`;
 
   return htmlBuffer;
 }

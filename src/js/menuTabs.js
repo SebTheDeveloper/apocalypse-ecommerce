@@ -14,15 +14,50 @@ function selectTab() {
 }
 
 function loadMenu(tab = 'Food') {
-  const currTab = tab.textContent || tab;
+  let tabTextContent = tab.textContent || tab;
+  const currTab = tabTextContent.toLowerCase();
   const menu = document.querySelector('.menu-inventory');
 
-  if (currTab === 'Food') {
+  if (currTab === 'food') {
     menu.innerHTML = food();
   } else {
     menu.innerHTML = gear();
   }
+
   selectCartItems(menu);
+  backToTop();
+}
+
+
+function backToTop() {
+
+  const [...menuItems] = document.querySelectorAll('.menu-item');
+  const lastItem = menuItems[menuItems.length - 1];
+  const backToTopBtn = document.querySelector('.back-to-top');
+
+  let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  }
+
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio === 0) {
+        return;
+      } else if (entry.intersectionRatio === 1) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.style.opacity = '0';
+        setTimeout(() => {
+          backToTopBtn.classList.remove('visible');
+          backToTopBtn.style = '';
+        }, 600);
+      }
+    });
+  }, options);
+
+  observer.observe(lastItem);
 }
 
 function selectCartItems(menu) {
