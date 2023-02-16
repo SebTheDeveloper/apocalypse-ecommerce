@@ -119,7 +119,7 @@ function createMarkup() {
             <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
             <div class="description">
               <p>${name}</p>
-              <p>${price}</p>
+              <p id="price">${price}</p>
               <button>Add to Cart</button>
             </div>
           </div>
@@ -157,7 +157,7 @@ function createMarkup() {
           <div class="item">
             <div class="description">
               <p>${name}</p>
-              <p>${price}</p>
+              <p id="price">${price}</p>
               <button>Add to Cart</button>
             </div>
             <img src="${src}" id="menu-image" loading="lazy" alt="${name}" title="${name}">
@@ -197,7 +197,7 @@ function createMarkup() {
   <div class="back-to-top">
   <a href="#">Back to Top</a>
   </div>`;
-  
+
   return htmlBuffer;
 }
 

@@ -177,6 +177,18 @@ li {
   color: white;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, .2);
 }
+.wallet-balance {
+  font-family: 'Nosifer', cursive;
+  width: 100%;
+  grid-column: span 2;
+  text-align: center;
+  margin-top: 3rem;
+}
+.wallet-balance span {
+  font-size: 1.3em;
+  color: var(--green);
+  letter-spacing: 1px;
+}
 .menu-inventory {
   flex-direction: column;
   color: #bfbfbf;
@@ -196,12 +208,12 @@ li {
   --dashed-border-color: #6f6f6f;
   flex-direction: column;
   gap: 2.5rem;
-  cursor: pointer;
   position: relative;
   width: 100%;
   justify-content: space-around;
   box-shadow: 0 0 5px white;
   padding: 2rem;
+  transition: box-shadow .1s ease-in-out;
 }
 .menu-item:hover {
   --dashed-border-color: white;
@@ -221,7 +233,21 @@ li {
   left: 0;
 }
 .menu-item-invalid {
-  box-shadow: 0 0 22px rgba(255, 0, 0, .7);
+  animation: pulse-red 1.2s ease-in-out;
+}
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, .7);
+  }
+  33% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
+  66% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, .7);
+  }
+  100% {
+    box-shadow: 0 0 9px white;
+  }
 }
 .item {
   justify-content: space-around;
@@ -285,6 +311,7 @@ button:active {
 
 .click-for-stats {
   font-family: 'Nosifer', cursive;
+  cursor: pointer;
   font-size: .9rem;
   color: var(--orange);
   text-decoration: underline;

@@ -28,7 +28,6 @@ function loadMenu(tab = 'Food') {
   backToTop();
 }
 
-
 function backToTop() {
 
   const [...menuItems] = document.querySelectorAll('.menu-item');
@@ -74,12 +73,30 @@ function selectCartItems(menu) {
     }
     
     btn.addEventListener('click', () => {
-      item.classList.toggle('selected-item');
+      const price = Number(item.querySelector('#price').textContent.slice(1));
+      let walletBalance = Number(sessionStorage.getItem('walletBalance'));
+
       if (btn.textContent === 'Add to Cart') {
+
+        if ((walletBalance - price) <= 0) {
+          item.classList.add('menu-item-invalid');
+          setTimeout(() => {
+            item.classList.remove('menu-item-invalid');
+          }, 1200);
+          return;
+        } else {
+          walletBalance -= price;
+          sessionStorage.setItem('walletBalance', walletBalance);
+        }
         btn.textContent = 'Remove from Cart';
+
       } else {
         btn.textContent = 'Add to Cart';
+        walletBalance += price;
+        sessionStorage.setItem('walletBalance', walletBalance);
       }
+
+      item.classList.toggle('selected-item');
       manageSessionStorage(item);
     });
 
@@ -97,6 +114,9 @@ function manageSessionStorage(item) {
   } else {
     sessionStorage.setItem(itemName, "item selected");
   }
+  
+  const walletBalanceSpan = document.querySelector('.wallet-balance span');
+  walletBalanceSpan.textContent = `$${sessionStorage.getItem('walletBalance')}`;
 }
 
 export default function menuTabs() {
