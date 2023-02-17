@@ -25,7 +25,30 @@ function loadMenu(tab = 'Food') {
   }
 
   selectCartItems(menu);
+  topWalletBalance();
   backToTop();
+}
+
+function topWalletBalance() {
+
+  const firstItem = document.querySelector('.menu-item:nth-of-type(3)');
+  const walletBalanceTop = document.querySelector('.wallet-balance-top');
+
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio === 0) {
+        return
+      } else if ((entry.intersectionRect.top > 0)) {
+        if (entry.isIntersecting) {
+        walletBalanceTop.classList.remove('hidden');
+        } else {
+          walletBalanceTop.classList.add('hidden');
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(firstItem);
 }
 
 function backToTop() {
@@ -34,19 +57,13 @@ function backToTop() {
   const lastItem = menuItems[menuItems.length - 1];
   const backToTopBtn = document.querySelector('.back-to-top');
 
-  let options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0
-  }
-
   let observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.intersectionRatio === 0) {
         return;
       } else if (entry.intersectionRatio === 1) {
         backToTopBtn.classList.add('visible');
-      } else {
+      } else if (entry.intersectionRect.top > 0) {
         backToTopBtn.style.opacity = '0';
         setTimeout(() => {
           backToTopBtn.classList.remove('visible');
@@ -54,7 +71,7 @@ function backToTop() {
         }, 600);
       }
     });
-  }, options);
+  }, { threshold: 1 });
 
   observer.observe(lastItem);
 }
@@ -116,7 +133,9 @@ function manageSessionStorage(item) {
   }
   
   const walletBalanceSpan = document.querySelector('.wallet-balance span');
+  const walletBalanceTop = document.querySelector('.wallet-balance-top');
   walletBalanceSpan.textContent = `$${sessionStorage.getItem('walletBalance')}`;
+  walletBalanceTop.textContent = `$${sessionStorage.getItem('walletBalance')}`;
 }
 
 export default function menuTabs() {

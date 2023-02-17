@@ -15,12 +15,15 @@ export default function initialLoad() {
 function manageWalletBalance() {
   const startingWalletBalance = '1000';
   const walletBalanceSpan = document.querySelector('.wallet-balance span');
+  const walletBalanceTop = document.querySelector('.wallet-balance-top');
 
   if (sessionStorage.getItem('walletBalance')) {
     walletBalanceSpan.textContent = `$${sessionStorage.getItem('walletBalance')}`;
+    walletBalanceTop.textContent = `$${sessionStorage.getItem('walletBalance')}`;
     return;
   } else {
     sessionStorage.setItem('walletBalance', startingWalletBalance);
     walletBalanceSpan.textContent = `$${startingWalletBalance}`;
+    walletBalanceTop.textContent = `$${startingWalletBalance}`;
   }
 }
