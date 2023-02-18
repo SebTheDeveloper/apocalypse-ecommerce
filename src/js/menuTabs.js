@@ -40,9 +40,12 @@ function topWalletBalance() {
         return
       } else if ((entry.intersectionRect.top > 0)) {
         if (entry.isIntersecting) {
-        walletBalanceTop.classList.remove('hidden');
+          walletBalanceTop.classList.remove('hidden');
+          walletBalanceTop.classList.add('valid');
         } else {
           walletBalanceTop.classList.add('hidden');
+          walletBalanceTop.classList.remove('valid');
+          walletBalanceTop.classList.remove('invalid');
         }
       }
     });
@@ -92,14 +95,27 @@ function selectCartItems(menu) {
     btn.addEventListener('click', () => {
       const price = Number(item.querySelector('#price').textContent.slice(1));
       let walletBalance = Number(sessionStorage.getItem('walletBalance'));
+      const walletBalanceTop = document.querySelector('.wallet-balance-top');
 
       if (btn.textContent === 'Add to Cart') {
 
         if ((walletBalance - price) <= 0) {
+          const walletBalanceFixed = document.querySelector('.wallet-balance');
+
           item.classList.add('menu-item-invalid');
-          setTimeout(() => {
+          walletBalanceFixed.classList.add('invalid');
+          walletBalanceTop.classList.add('invalid');
+
+          walletBalanceFixed.addEventListener('animationend', () => {
+            walletBalanceFixed.classList.remove('invalid');
+          }, { once: true });
+          walletBalanceTop.addEventListener('animationend', () => {
+            walletBalanceTop.classList.remove('invalid');
+          }, { once: true });
+          item.addEventListener('animationend', () => {
             item.classList.remove('menu-item-invalid');
-          }, 1200);
+          }, { once: true });
+
           return;
         } else {
           walletBalance -= price;
@@ -135,7 +151,7 @@ function manageSessionStorage(item) {
   const walletBalanceSpan = document.querySelector('.wallet-balance span');
   const walletBalanceTop = document.querySelector('.wallet-balance-top');
   walletBalanceSpan.textContent = `$${sessionStorage.getItem('walletBalance')}`;
-  walletBalanceTop.textContent = `$${sessionStorage.getItem('walletBalance')}`;
+  walletBalanceTop.textContent = `$ ${sessionStorage.getItem('walletBalance')}`;
 }
 
 export default function menuTabs() {
