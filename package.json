@@ -2,9 +2,10 @@
   "name": "restaurant-webpack",
   "version": "1.0.0",
   "description": "Dynamic rendering of restaurant page using webpack. Part of The Odin Project curriculum",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
+    "build": "webpack",
     "watch": "webpack --watch"
   },
   "author": "",

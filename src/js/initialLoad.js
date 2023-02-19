@@ -13,7 +13,7 @@ export default function initialLoad() {
 }
 
 function manageWalletBalance() {
-  const startingWalletBalance = '1000';
+  const startingWalletBalance = '2000';
   const walletBalanceSpan = document.querySelector('.wallet-balance span');
   const walletBalanceTop = document.querySelector('.wallet-balance-top');
 

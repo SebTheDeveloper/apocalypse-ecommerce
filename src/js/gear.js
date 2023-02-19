@@ -2,7 +2,7 @@ const gearItems = [
   {
     name: 'Hunting Rifle',
     price: '$275',
-    src: 'assets/images/hunting-rifle.png',
+    src: 'images/hunting-rifle.png',
     damage: '2',
     protection: '3',
     effectOnVitality: '1',
@@ -10,8 +10,8 @@ const gearItems = [
   },
   {
     name: 'Ray Gun',
-    price: '$1400',
-    src: 'assets/images/ray-gun.png',
+    price: '$1100',
+    src: 'images/ray-gun.png',
     damage: '5',
     protection: '5',
     effectOnVitality: '2',
@@ -20,7 +20,7 @@ const gearItems = [
   {
     name: 'Machete',
     price: '$45',
-    src: 'assets/images/machete.png',
+    src: 'images/machete.png',
     damage: '2',
     protection: '2',
     effectOnVitality: '1',
@@ -29,7 +29,7 @@ const gearItems = [
   {
     name: 'Baseball Bat',
     price: '$20',
-    src: 'assets/images/baseball-bat.png',
+    src: 'images/baseball-bat.png',
     damage: '1',
     protection: '2',
     effectOnVitality: '1',
@@ -38,7 +38,7 @@ const gearItems = [
   {
     name: '.357 Magnum Revolver',
     price: '$550',
-    src: 'assets/images/revolver.png',
+    src: 'images/revolver.png',
     damage: '3',
     protection: '3',
     effectOnVitality: '1',
@@ -47,7 +47,7 @@ const gearItems = [
   {
     name: 'Molotov Cocktail',
     price: '$35',
-    src: 'assets/images/molotov-cocktail.png',
+    src: 'images/molotov-cocktail.png',
     damage: '4',
     protection: '3',
     effectOnVitality: '1',
@@ -56,7 +56,7 @@ const gearItems = [
   {
     name: 'Gas Mask',
     price: '$150',
-    src: 'assets/images/gas-mask.png',
+    src: 'images/gas-mask.png',
     damage: '1',
     protection: '4',
     effectOnVitality: '5',
@@ -64,8 +64,8 @@ const gearItems = [
   },
   {
     name: 'Hazmat Suit',
-    price: '$500',
-    src: 'assets/images/hazmat-suit.png',
+    price: '$400',
+    src: 'images/hazmat-suit.png',
     damage: '1',
     protection: '4',
     effectOnVitality: '5',
@@ -73,8 +73,8 @@ const gearItems = [
   },
   {
     name: 'Banshee',
-    price: '$2500',
-    src: 'assets/images/banshee.png',
+    price: '$1500',
+    src: 'images/banshee.png',
     damage: '5',
     protection: '5',
     effectOnVitality: '5',
@@ -82,8 +82,8 @@ const gearItems = [
   },
   {
     name: 'Minigun',
-    price: '$1150',
-    src: 'assets/images/minigun.png',
+    price: '$1000',
+    src: 'images/minigun.png',
     damage: '5',
     protection: '5',
     effectOnVitality: '1',
@@ -92,7 +92,7 @@ const gearItems = [
   {
     name: 'Flamethrower',
     price: '$500',
-    src: 'assets/images/flame-thrower.png',
+    src: 'images/flame-thrower.png',
     damage: '4',
     protection: '3',
     effectOnVitality: '1',
@@ -100,8 +100,8 @@ const gearItems = [
   },
   {
     name: 'Robo Dog Companion',
-    price: '$1500',
-    src: 'assets/images/robo-dog.png',
+    price: '$1400',
+    src: 'images/robo-dog.png',
     damage: '3',
     protection: '5',
     effectOnVitality: '5',
@@ -110,7 +110,7 @@ const gearItems = [
   {
     name: 'Fidget Spinner',
     price: '$15',
-    src: 'assets/images/fidget-spinner.png',
+    src: 'images/fidget-spinner.png',
     damage: '1',
     protection: '1',
     effectOnVitality: '5',

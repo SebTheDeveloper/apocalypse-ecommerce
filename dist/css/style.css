@@ -42,7 +42,7 @@ main {
   font-size: 1.5rem;
 }
 .background {
-  background-image: radial-gradient( rgba(70, 76, 154, 0.376), rgba(51, 4, 59, 0.565)), url('../assets/images/blurred-city.jpg');
+  background-image: radial-gradient( rgba(70, 76, 154, 0.376), rgba(51, 4, 59, 0.565)), url('../images/blurred-city.jpg');
   position: fixed;
   background-size: cover;
   top: 0;
@@ -64,7 +64,7 @@ main {
   height: 18rem;
 }
 .fog {
-  background-image: url('../assets/images/9vZL.gif');
+  background-image: url('../images/fog.gif');
   background-size: cover;
   z-index: 1;
   position: fixed;
@@ -576,9 +576,6 @@ button:active {
   h1 span:last-of-type {
     font-size: 2.1rem;
   }
-  /* .wallet-balance {
-    font-size: 1.3rem;
-  } */
   .menu-item {
     padding: 2rem 1.6rem;
     width: 85%;

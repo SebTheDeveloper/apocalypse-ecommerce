@@ -1,6 +1,8 @@
 import food from "./food.js";
 import gear from "./gear.js";
 
+
+
 const tabs = document.querySelectorAll('nav li');
 
 function selectTab() {
@@ -89,19 +91,18 @@ function selectCartItems(menu) {
 
     if (sessionStorage.getItem(itemName)) {
       item.classList.add('selected-item');
-      btn.textContent = 'Remove from Cart'
+      btn.textContent = 'Remove from Cart';
     }
     
     btn.addEventListener('click', () => {
       const price = Number(item.querySelector('#price').textContent.slice(1));
       let walletBalance = Number(sessionStorage.getItem('walletBalance'));
       const walletBalanceTop = document.querySelector('.wallet-balance-top');
+      const walletBalanceFixed = document.querySelector('.wallet-balance');
 
       if (btn.textContent === 'Add to Cart') {
 
-        if ((walletBalance - price) <= 0) {
-          const walletBalanceFixed = document.querySelector('.wallet-balance');
-
+        if ((walletBalance - price) < 0) {
           item.classList.add('menu-item-invalid');
           walletBalanceFixed.classList.add('invalid');
           walletBalanceTop.classList.add('invalid');

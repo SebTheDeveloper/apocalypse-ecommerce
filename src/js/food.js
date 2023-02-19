@@ -2,7 +2,7 @@ const foodItems = [
   {
     name: 'Box of Canned Goods',
     price: '$40',
-    src: 'assets/images/box-of-canned-goods.png',
+    src: 'images/box-of-canned-goods.png',
     health: '3',
     longevity: '5',
     energy: '2',
@@ -11,7 +11,7 @@ const foodItems = [
   {
     name: 'Tuna Sandwich',
     price: '$7',
-    src: 'assets/images/tuna-sandwich.png',
+    src: 'images/tuna-sandwich.png',
     health: '3',
     longevity: '1',
     energy: '4',
@@ -20,7 +20,7 @@ const foodItems = [
   {
     name: 'Water Jug (5 Gal)',
     price: '$20',
-    src: 'assets/images/water-jug-5-gallon.png',
+    src: 'images/water-jug-5-gallon.png',
     health: '5',
     longevity: '5',
     energy: '4',
@@ -29,7 +29,7 @@ const foodItems = [
   {
     name: 'Coffee Beans',
     price: '$12',
-    src: 'assets/images/coffee-beans.png',
+    src: 'images/coffee-beans.png',
     health: '3',
     longevity: '4',
     energy: '5',
@@ -38,7 +38,7 @@ const foodItems = [
   {
     name: 'Bottle of Whiskey',
     price: '$27',
-    src: 'assets/images/whiskey-bottle.png',
+    src: 'images/whiskey-bottle.png',
     health: '1',
     longevity: '5',
     energy: '2',
@@ -47,7 +47,7 @@ const foodItems = [
   {
     name: 'Red Apple',
     price: '$3',
-    src: 'assets/images/red-apple.png',
+    src: 'images/red-apple.png',
     health: '5',
     longevity: '2',
     energy: '4',
@@ -56,7 +56,7 @@ const foodItems = [
   {
     name: 'Old Chinese Food',
     price: '$9',
-    src: 'assets/images/chinese-food.png',
+    src: 'images/chinese-food.png',
     health: '1',
     longevity: '2',
     energy: '3',
@@ -65,7 +65,7 @@ const foodItems = [
   {
     name: 'Coconut',
     price: '$7',
-    src: 'assets/images/coconut.png',
+    src: 'images/coconut.png',
     health: '4',
     longevity: '3',
     energy: '5',
@@ -74,7 +74,7 @@ const foodItems = [
   {
     name: 'Bowl of Rice',
     price: '$4',
-    src: 'assets/images/bowl-of-rice.png',
+    src: 'images/bowl-of-rice.png',
     health: '3',
     longevity: '5',
     energy: '4',
@@ -83,7 +83,7 @@ const foodItems = [
   {
     name: 'Canned Mystery Food',
     price: '$5',
-    src: 'assets/images/canned-mystery-food.png',
+    src: 'images/canned-mystery-food.png',
     health: '2',
     longevity: '5',
     energy: '4',
@@ -92,7 +92,7 @@ const foodItems = [
   {
     name: 'Dog Food Bites',
     price: '$2',
-    src: 'assets/images/dog-food-bites.png',
+    src: 'images/dog-food-bites.png',
     health: '1',
     longevity: '4',
     energy: '1',
