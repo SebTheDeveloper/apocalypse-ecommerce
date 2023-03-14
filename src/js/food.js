@@ -103,7 +103,7 @@ const foodItems = [
 function createMarkup() {
   let htmlBuffer = '';
   
-  for (let i = 0; i < foodItems.length; i ++) {
+  for (let i in foodItems) {
     const name = foodItems[i].name;
     const price = foodItems[i].price;
     const src = foodItems[i].src;

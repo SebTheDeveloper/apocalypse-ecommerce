@@ -1,10 +1,10 @@
 {
-  "name": "restaurant-webpack",
-  "version": "1.0.0",
-  "description": "Dynamic rendering of restaurant page using webpack. Part of The Odin Project curriculum",
+  "name": "apocalypse-mega-mart",
+  "version": "1.1.0",
+  "description": "Apocalypse Mega Mart. Pick your poison.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "nodemon server",
     "build": "webpack",
     "watch": "webpack --watch"
   },

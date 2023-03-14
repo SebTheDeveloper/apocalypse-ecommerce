@@ -121,7 +121,7 @@ const gearItems = [
 function createMarkup() {
   let htmlBuffer = '';
   
-  for (let i = 0; i < gearItems.length; i ++) {
+  for (let i in gearItems) {
     const name = gearItems[i].name;
     const price = gearItems[i].price;
     const src = gearItems[i].src;
