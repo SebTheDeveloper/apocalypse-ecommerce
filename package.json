@@ -4,7 +4,7 @@
   "description": "Apocalypse Mega Mart. Pick your poison.",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon server",
+    "dev": "nodemon app",
     "build": "webpack",
     "watch": "webpack --watch"
   },

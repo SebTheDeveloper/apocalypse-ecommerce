@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-  res.send('This site is currently in development. Thanks for stopping by!');
+  res.redirect('/apocalypse');
 });
 
 // Set static folder
